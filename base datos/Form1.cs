@@ -26,14 +26,15 @@ namespace base_datos
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = conectandose.Consultar();
+            //dataGridView1.DataSource = conectandose.Consultar();
+            //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            conectandose.Conectar();
-            dataGridView1.DataSource = conectandose.Consultar();
+            //conectandose.Conectar();
+            //dataGridView1.DataSource = conectandose.Consultar();
 
         }
 
@@ -45,41 +46,41 @@ namespace base_datos
 
         private void button2_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = conectandose.Consultar(textBox4.Text);
+            //dataGridView1.DataSource = conectandose.Consultar(textBox4.Text);
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            conectandose.Insertar(textBox1.Text, textBox2.Text, textBox3.Text);
-            //actualiza el DataGidView
-            dataGridView1.DataSource = conectandose.Consultar();
-            //limpia los campos
-            textBox1.Text = "";
-            textBox2.Text = "";
-            textBox3.Text = "";
+            //conectandose.Insertar(textBox1.Text, textBox2.Text, textBox3.Text);
+            ////actualiza el DataGidView
+            //dataGridView1.DataSource = conectandose.Consultar();
+            ////limpia los campos
+            //textBox1.Text = "";
+            //textBox2.Text = "";
+            //textBox3.Text = "";
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            //se envian los datos por parametro
-            conectandose.Eliminar(textBox4.Text);
-            //actualiza el DataGidView
-            dataGridView1.DataSource = conectandose.Consultar();
-            //limpia los campos
-            textBox4.Text = "";
+            ////se envian los datos por parametro
+            //conectandose.Eliminar(textBox4.Text);
+            ////actualiza el DataGidView
+            //dataGridView1.DataSource = conectandose.Consultar();
+            ////limpia los campos
+            //textBox4.Text = "";
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            conectandose.Actualizar (textBox1.Text, textBox2.Text, textBox3.Text,textBox4.Text);
+            //conectandose.Actualizar(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text);
             //actualiza el DataGidView
-            dataGridView1.DataSource = conectandose.Consultar();
+            //dataGridView1.DataSource = conectandose.Consultar();
             //limpia los campos
-            textBox1.Text = "";
-            textBox2.Text = "";
-            textBox3.Text = "";
-            textBox4.Text = "";
+            //textBox1.Text = "";
+            //textBox2.Text = "";
+            //textBox3.Text = "";
+            //textBox4.Text = "";
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -124,7 +125,7 @@ namespace base_datos
         private void button8_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2();
-            form2.ShowDialog();
+            form2.Show();
         }
     }
 }
