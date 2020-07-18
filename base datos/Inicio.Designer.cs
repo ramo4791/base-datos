@@ -35,6 +35,7 @@
             this.pacientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enfermedadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.padeceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,7 +65,8 @@
             this.matenimientoDatosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.medicosToolStripMenuItem,
             this.pacientesToolStripMenuItem,
-            this.enfermedadesToolStripMenuItem});
+            this.enfermedadesToolStripMenuItem,
+            this.padeceToolStripMenuItem});
             this.matenimientoDatosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlText;
             this.matenimientoDatosToolStripMenuItem.Name = "matenimientoDatosToolStripMenuItem";
             this.matenimientoDatosToolStripMenuItem.Size = new System.Drawing.Size(127, 20);
@@ -101,6 +103,13 @@
             this.consultasToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.consultasToolStripMenuItem.Text = "Consultas";
             // 
+            // padeceToolStripMenuItem
+            // 
+            this.padeceToolStripMenuItem.Name = "padeceToolStripMenuItem";
+            this.padeceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.padeceToolStripMenuItem.Text = "Padece";
+            this.padeceToolStripMenuItem.Click += new System.EventHandler(this.padeceToolStripMenuItem_Click);
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -128,5 +137,6 @@
         private System.Windows.Forms.ToolStripMenuItem pacientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem enfermedadesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem padeceToolStripMenuItem;
     }
 }

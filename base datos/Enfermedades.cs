@@ -22,9 +22,15 @@ namespace base_datos
         {
             return "'" + xcadena + "'";
         }
+        private void muestra ()
+        {
+            string q = "select * from enfermedad";
+            dataGridView1.DataSource = conectandose.Consultar(q);
+        }
 
         private void bt_salir_Click(object sender, EventArgs e)
         {
+            //tb_codigo.ReadOnly = false;
             this.Close();
         }
 
@@ -57,20 +63,47 @@ namespace base_datos
 
         private void bt_modificar_Click(object sender, EventArgs e)
         {
-            //string tb = "enefermedad";
-            //conectandose.Actualizar(text.Text, tb_nombre.Text, tb_sistema.Text, textBox4.Text);
-            //actualiza el DataGidView
-            //dataGridView1.DataSource = conectandose.Consultar();
-            //limpia los campos
-            //textBox1.Text = "";
-            //tb_nombre.Text = "";
-            //tb_sistema.Text = "";
-            //textBox4.Text = "";
+            DataTable xLista = null;
+            bt_aceptar.Visible = true;
+            String codigo = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            String cadena = "select * from enfermedad where code = " + "'" + codigo + "'";
+            xLista = conectandose.Consultar(cadena);
+            tb_codigo.ReadOnly = true;
+            DataRow fila = xLista.Rows[0];
+            tb_codigo.Text = fila.ItemArray[0].ToString();
+            tb_nombre.Text = fila.ItemArray[1].ToString();
+            tb_sistema.Text = fila.ItemArray[2].ToString();
+            //muestra();
         }
 
         private void bt_eliminar_Click(object sender, EventArgs e)
         {
+            String codigo = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            String cadena = "delete from enfermedad where code = " + "'" + codigo + "'";
+            DialogResult dr = MessageBox.Show(this,"Elimina enfermedad \nCodigo :" + codigo + " ?","Confirmar",
+                MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+            if (dr == DialogResult.Yes)
+            {
+                conectandose.Consultar(cadena);
+            }            
+            muestra();
+        }
 
+        private void bt_aceptar_Click(object sender, EventArgs e)
+        {
+            string cadena = "";
+            cadena += "update enfermedad set ";
+            cadena += "nome = " + comilla_simple(tb_nombre.Text) + ",";
+            cadena += "sistema = " + comilla_simple(tb_sistema.Text);
+            cadena += " where code = " + comilla_simple(tb_codigo.Text);
+            conectandose.Consultar(cadena);
+            muestra();
+            tb_codigo.ReadOnly = false;
+            tb_codigo.Text = "";
+            tb_nombre.Text = "";
+            tb_sistema.Text = "";
+            bt_aceptar.Visible = false;
+            
         }
     }
 }

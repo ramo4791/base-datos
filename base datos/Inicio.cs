@@ -45,5 +45,13 @@ namespace base_datos
             v_e.ShowDialog();
             this.Show();
         }
+
+        private void padeceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Padece v_padece = new Padece();
+            this.Hide();
+            v_padece.ShowDialog();
+            this.Show();
+        }
     }
 }

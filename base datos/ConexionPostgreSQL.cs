@@ -125,10 +125,12 @@ namespace base_datos
         public DataTable Consultar (string query)
         {
             //string query = "select * from pacientes";
+            conn.Open();
             NpgsqlCommand conector = new NpgsqlCommand(query, conn);
             NpgsqlDataAdapter datos = new NpgsqlDataAdapter(conector);
             DataTable tabla = new DataTable();
             datos.Fill(tabla);
+            conn.Close();
             return tabla;
         }
 
@@ -169,7 +171,7 @@ namespace base_datos
             NpgsqlCommand ejecutor = new NpgsqlCommand(query, conn);
             conn.Open();
             ejecutor.ExecuteNonQuery();
-            MessageBox.Show("Registro Actualizado!");
+            //MessageBox.Show("Registro Actualizado!");
             conn.Close();
            
         }
